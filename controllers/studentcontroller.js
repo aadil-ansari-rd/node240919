@@ -7,7 +7,7 @@ async function addStudent(req,res){
         console.log('data saved sucessfully ');
         res.end('data added...');
 
-    }catch(err){
+    }catch(err){ 
         console.log(err);
     }
     
@@ -21,7 +21,17 @@ async function getStudent(req, res){
         console.log(err);
     }
 }
+async function getStudentP(req,res){
+    try{
+        let rollNo= parseInt(req.params.rollNo);
+        let student = await Student.findOne({rollNo:rollNo});
+        res.send(student);
+    }catch(err){
+        console.log(err);
+    }
+}
 module.exports = {
     addStudent,
-    getStudent
+    getStudent,
+    getStudentP
 }

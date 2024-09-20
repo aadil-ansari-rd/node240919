@@ -10,4 +10,7 @@ router.post('/add/student', (req , res )=>{
 router.get('/students',(req,res)=>{
     studentcontroller.getStudent(req,res);
 })
+router.get('/student/:rollNo',(req,res)=>{
+    studentcontroller.getStudentP(req,res);
+})
 module.exports= router ;
